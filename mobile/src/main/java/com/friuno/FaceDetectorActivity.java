@@ -34,7 +34,7 @@ public class FaceDetectorActivity extends AppCompatActivity {
     private static final String TAG = "FaceDetectorActivity";
     public static final int MEDIA_TYPE_IMAGE = 1;
     public static final String PROJECT_DIRECTORY_NAME = "FRIUNO";
-    public static final String IMAGE_DIRECTORY_NAME = "images";
+    public static final String IMAGE_DIRECTORY_NAME = "friuno_images";
     public static final String CACHE_DIRECTORY_NAME = "cache";
     private static final int CHOOSE_IMAGE_REQUEST_CODE = 101;
     private Uri fileUri;
