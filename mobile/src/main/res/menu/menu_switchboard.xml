@@ -1,0 +1,25 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".LivingRoomFragment">
+    <item
+        android:id="@+id/action_switchboard_voiceControl"
+        android:icon="@mipmap/ic_mic_white_48dp"
+        android:title="@string/action_voiceControl"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/action_switchboard_help"
+        android:orderInCategory="100"
+        android:title="@string/action_help"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_switchboard_about"
+        android:orderInCategory="100"
+        android:title="@string/action_about"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_switchboard_logout"
+        android:orderInCategory="100"
+        android:title="@string/action_logout"
+        app:showAsAction="never" />
+</menu>

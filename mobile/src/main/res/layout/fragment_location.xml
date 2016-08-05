@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?colorPrimary"
+    android:fitsSystemWindows="true"
+    android:gravity="center"
+    tools:context=".LocationFragment">
+
+    <com.google.android.gms.maps.MapView
+        android:id="@+id/locationMap"
+        android:name="com.google.android.gms.maps.SupportMapFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"></com.google.android.gms.maps.MapView>
+
+    <Button
+        android:id="@+id/internetbutton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end|top"
+        android:fontFamily="sans-serif-condensed"
+        android:text="Check Internet"
+        android:textColor="@android:color/white"
+        android:visibility="invisible" />
+
+    <Button
+        android:id="@+id/locationButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/internetbutton"
+        android:layout_gravity="end|top"
+        android:fontFamily="sans-serif-condensed"
+        android:text="Location"
+        android:textColor="@android:color/white"
+        android:visibility="invisible" />
+</RelativeLayout>

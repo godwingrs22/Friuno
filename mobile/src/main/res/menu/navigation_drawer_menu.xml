@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/item_navigation_drawer_dashboard"
+            android:checked="true"
+            android:icon="@mipmap/ic_dashboard_black_48dp"
+            android:title="DashBoard" />
+        <item
+            android:id="@+id/item_navigation_drawer_switchBoards"
+            android:icon="@mipmap/socket"
+            android:title="SwitchBoard" />
+        <item
+            android:id="@+id/item_navigation_drawer_timer"
+            android:icon="@mipmap/ic_access_alarm_black_48dp"
+            android:title="Timer" />
+        <item
+            android:id="@+id/item_navigation_drawer_statistics"
+            android:icon="@mipmap/statistics1"
+            android:title="Statistics" />
+    </group>
+    <item android:title="Settings">
+        <menu>
+            <item
+                android:id="@+id/item_navigation_drawer_location_settings"
+                android:icon="@mipmap/ic_pin_drop_black_48dp"
+                android:title="Location" />
+            <item
+                android:id="@+id/item_navigation_drawer_device_settings"
+                android:icon="@mipmap/ic_settings_black_48dp"
+                android:title="Device" />
+        </menu>
+    </item>
+    <item android:title="Support">
+        <menu>
+            <item
+                android:id="@+id/item_navigation_drawer_about"
+                android:icon="@mipmap/ic_info_black_48dp"
+                android:title="About" />
+            <item
+                android:id="@+id/item_navigation_drawer_share"
+                android:icon="@mipmap/ic_share_black_48dp"
+                android:title="Share" />
+            <item
+                android:id="@+id/item_navigation_drawer_rateus"
+                android:icon="@mipmap/ic_star_half_black_48dp"
+                android:title="Rate Us" />
+            <item
+                android:id="@+id/item_navigation_drawer_contact_us"
+                android:icon="@mipmap/ic_mail_black_48dp"
+                android:title="Contact Us" />
+            <item
+                android:id="@+id/item_navigation_drawer_help_and_feedback"
+                android:icon="@mipmap/ic_help_black_48dp"
+                android:title="Help and feedback" />
+        </menu>
+    </item>
+
+</menu>
