@@ -18,8 +18,6 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-import com.friuno.image.ImageController;
-import com.friuno.image.ImageSearch;
 import com.friuno.util.InternetResolver;
 
 import java.io.ByteArrayOutputStream;
@@ -43,7 +41,6 @@ public class FaceDetectorActivity extends AppCompatActivity {
     private ImageView userImage;
     private Button browseImage, submit_image;
     String imageJSON = null;
-    ImageController imageController;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,8 +50,6 @@ public class FaceDetectorActivity extends AppCompatActivity {
         browseImage = (Button) findViewById(R.id.browseImage);
         submit_image = (Button) findViewById(R.id.submit_image);
         userImage = (ImageView) findViewById(R.id.userImage);
-
-        imageController = new ImageController();
 
         browseImage.setOnClickListener(new View.OnClickListener() {
             @Override
