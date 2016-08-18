@@ -10,6 +10,9 @@ import com.friuno.util.Constants;
 import java.util.Timer;
 import java.util.TimerTask;
 
+/**
+ * Created by GodwinRoseSamuel on 18-07-2016.
+ */
 public class TimeScheduler {
     private static final LivingRoomFragment livingRoomFragment = new LivingRoomFragment();
     private static int livingRoomSwitch1ElapsedTime, livingRoomSwitch2ElapsedTime, livingRoomSwitch3ElapsedTime, livingRoomSwitch4ElapsedTime, livingRoomSwitch5ElapsedTime, livingRoomSwitch6ElapsedTime, livingRoomSwitch7ElapsedTime, livingRoomSwitch8ElapsedTime;

@@ -1,7 +1,7 @@
 package com.friuno.credentials;
 
 /**
- * Created by GodwinRoseSamuel on 16-07-2016.
+ * Created by GodwinRoseSamuel on 15-01-2016.
  */
 public class APICredentials {
     public static final String FACE_DETECTION_ENDPOINT = "https://api.idolondemand.com/1/api/sync/detectfaces/v1";

@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.support.v4.app.Fragment;
-import android.support.v4.content.ContextCompat;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -24,7 +23,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * Created by GodwinRoseSamuel on 20-07-2016.
+ * Created by GodwinRoseSamuel on 21-07-2016.
  */
 public class DashBoardFragment extends Fragment {
 
@@ -57,8 +56,8 @@ public class DashBoardFragment extends Fragment {
         room_electricity_load_value_TextSwitcher = (TextSwitcher) view.findViewById(R.id.dashboard_room_electricity_load_value);
         room_electricity_load_unit_value_TextSwitcher = (TextSwitcher) view.findViewById(R.id.dashboard_room_electricity_load_unit_value);
 
-        livingRoomArray = new String[]{"3", "5", "12.2", "57\u00b0", "80", "W"};
-        mainHallArray = new String[]{"6", "2", "20.9", "45\u00b0", "1", "KW"};
+        livingRoomArray = new String[]{"3", "5", "12.2", "30\u00b0", "20", "W"};
+        mainHallArray = new String[]{"6", "2", "20.9", "25\u00b0", "1", "KW"};
         bedRoomArray = new String[]{"1", "7", "35.0", "38\u00b0", "60", "W"};
         kitchenArray = new String[]{"5", "3", "15.4", "72\u00b0", "2", "KW"};
         otherRoomArray = new String[]{"4", "4", "23.1", "27\u00b0", "5", "KW"};
@@ -84,7 +83,7 @@ public class DashBoardFragment extends Fragment {
                 TextView room = new TextView(context);
                 room.setGravity(Gravity.CENTER);
                 room.setTextAppearance(context, R.style.TextAppearance_AppCompat_Button);
-                room.setTextColor(ContextCompat.getColor(context, R.color.md_orange_500));
+                room.setTextColor(getResources().getColor(R.color.md_orange_500));
                 return room;
             }
         });
@@ -94,7 +93,7 @@ public class DashBoardFragment extends Fragment {
                 TextView switch_on = new TextView(context);
                 switch_on.setGravity(Gravity.CENTER);
                 switch_on.setTextAppearance(context, R.style.TextAppearance_AppCompat_Title);
-                switch_on.setTextColor( ContextCompat.getColor(context, R.color.md_deep_purple_500));
+                switch_on.setTextColor(getResources().getColor(R.color.md_deep_purple_500));
                 return switch_on;
             }
         });
@@ -104,7 +103,7 @@ public class DashBoardFragment extends Fragment {
                 TextView switch_off = new TextView(context);
                 switch_off.setGravity(Gravity.CENTER);
                 switch_off.setTextAppearance(context, R.style.TextAppearance_AppCompat_Title);
-                switch_off.setTextColor(ContextCompat.getColor(context, R.color.md_deep_purple_500));
+                switch_off.setTextColor(getResources().getColor(R.color.md_deep_purple_500));
                 return switch_off;
             }
         });
@@ -129,7 +128,7 @@ public class DashBoardFragment extends Fragment {
                 TextView room = new TextView(context);
                 room.setGravity(Gravity.CENTER);
                 room.setTextAppearance(context, R.style.TextAppearance_AppCompat_Button);
-                room.setTextColor(ContextCompat.getColor(context, R.color.md_orange_500));
+                room.setTextColor(getResources().getColor(R.color.md_orange_500));
                 return room;
             }
         });
@@ -139,7 +138,7 @@ public class DashBoardFragment extends Fragment {
                 TextView electricity = new TextView(context);
                 electricity.setGravity(Gravity.CENTER | Gravity.CENTER_VERTICAL);
                 electricity.setTextAppearance(context, R.style.TextAppearance_AppCompat_Display1);
-                electricity.setTextColor(ContextCompat.getColor(context, R.color.md_deep_purple_500));
+                electricity.setTextColor(getResources().getColor(R.color.md_deep_purple_500));
                 return electricity;
             }
         });
@@ -160,7 +159,7 @@ public class DashBoardFragment extends Fragment {
                 TextView room = new TextView(context);
                 room.setGravity(Gravity.CENTER);
                 room.setTextAppearance(context, R.style.TextAppearance_AppCompat_Button);
-                room.setTextColor(ContextCompat.getColor(context, R.color.md_orange_500));
+                room.setTextColor(getResources().getColor(R.color.md_orange_500));
                 return room;
             }
         });
@@ -170,7 +169,7 @@ public class DashBoardFragment extends Fragment {
                 TextView climate = new TextView(context);
                 climate.setGravity(Gravity.CENTER);
                 climate.setTextAppearance(context, R.style.TextAppearance_AppCompat_Display1);
-                climate.setTextColor(ContextCompat.getColor(context, R.color.md_deep_purple_500));
+                climate.setTextColor(getResources().getColor(R.color.md_deep_purple_500));
                 return climate;
             }
         });
@@ -191,7 +190,7 @@ public class DashBoardFragment extends Fragment {
                 TextView room = new TextView(context);
                 room.setGravity(Gravity.CENTER);
                 room.setTextAppearance(context, R.style.TextAppearance_AppCompat_Button);
-                room.setTextColor(ContextCompat.getColor(context, R.color.md_orange_500));
+                room.setTextColor(getResources().getColor(R.color.md_orange_500));
                 return room;
             }
         });
@@ -201,7 +200,7 @@ public class DashBoardFragment extends Fragment {
                 TextView load = new TextView(context);
                 load.setGravity(Gravity.CENTER | Gravity.CENTER_VERTICAL);
                 load.setTextAppearance(context, R.style.TextAppearance_AppCompat_Display1);
-                load.setTextColor(ContextCompat.getColor(context, R.color.md_deep_purple_500));
+                load.setTextColor(getResources().getColor(R.color.md_deep_purple_500));
                 return load;
             }
         });
@@ -211,7 +210,7 @@ public class DashBoardFragment extends Fragment {
                 TextView unit = new TextView(context);
                 unit.setGravity(Gravity.CENTER | Gravity.CENTER_VERTICAL);
                 unit.setTextAppearance(context, R.style.TextAppearance_AppCompat_Small);
-                unit.setTextColor(ContextCompat.getColor(context, R.color.md_deep_purple_500));
+                unit.setTextColor(getResources().getColor(R.color.md_deep_purple_500));
                 return unit;
             }
         });
@@ -248,7 +247,7 @@ public class DashBoardFragment extends Fragment {
                                 if (getActivity() == null)
                                     return;
                                 if (roomClimate.getKey().equals(Constants.LIVING_ROOM)) {
-                                    livingRoomArray = new String[]{String.valueOf(LivingRoomFragment.livingRoom_Switch_ON), String.valueOf(LivingRoomFragment.livingRoom_Switch_OFF), String.valueOf(LivingRoomFragment.livingRoom_unit), "57\u00b0", String.valueOf(LivingRoomFragment.livingRoom_Load), "W"};
+                                    livingRoomArray = new String[]{String.valueOf(LivingRoomFragment.livingRoom_Switch_ON), String.valueOf(LivingRoomFragment.livingRoom_Switch_OFF), String.valueOf(LivingRoomFragment.livingRoom_unit), "28\u00b0", String.valueOf(LivingRoomFragment.livingRoom_Load), "W"};
                                     roomClimate.setValue(livingRoomArray);
                                 }
                                 Message message = dashBoardHandler.obtainMessage();

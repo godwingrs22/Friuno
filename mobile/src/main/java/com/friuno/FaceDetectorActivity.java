@@ -18,6 +18,8 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.friuno.image.ImageController;
+import com.friuno.image.ImageSearch;
 import com.friuno.util.InternetResolver;
 
 import java.io.ByteArrayOutputStream;
@@ -27,20 +29,21 @@ import java.io.IOException;
 import java.io.OutputStream;
 
 /**
- * Created by GodwinRoseSamuel on 30-07-2016.
+ * Created by GodwinRoseSamuel on 16-01-2016.
  */
 public class FaceDetectorActivity extends AppCompatActivity {
 
     private static final String TAG = "FaceDetectorActivity";
     public static final int MEDIA_TYPE_IMAGE = 1;
     public static final String PROJECT_DIRECTORY_NAME = "FRIUNO";
-    public static final String IMAGE_DIRECTORY_NAME = "friuno_images";
+    public static final String IMAGE_DIRECTORY_NAME = "images";
     public static final String CACHE_DIRECTORY_NAME = "cache";
     private static final int CHOOSE_IMAGE_REQUEST_CODE = 101;
     private Uri fileUri;
     private ImageView userImage;
     private Button browseImage, submit_image;
     String imageJSON = null;
+    ImageController imageController;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,6 +53,8 @@ public class FaceDetectorActivity extends AppCompatActivity {
         browseImage = (Button) findViewById(R.id.browseImage);
         submit_image = (Button) findViewById(R.id.submit_image);
         userImage = (ImageView) findViewById(R.id.userImage);
+
+        imageController = new ImageController();
 
         browseImage.setOnClickListener(new View.OnClickListener() {
             @Override

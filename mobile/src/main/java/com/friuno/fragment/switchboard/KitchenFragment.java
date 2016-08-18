@@ -7,7 +7,6 @@ import android.os.Handler;
 import android.os.Message;
 import android.os.Vibrator;
 import android.support.v4.app.Fragment;
-import android.support.v4.content.ContextCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,6 +19,9 @@ import com.friuno.fragment.SwitchBoardFragment;
 import com.friuno.timer.TimeScheduler;
 import com.friuno.util.Constants;
 
+/**
+ * Created by GodwinRoseSamuel on 15-01-2016.
+ */
 public class KitchenFragment extends Fragment {
 
     private static final String TAG = "KitchenFragment";
@@ -69,12 +71,12 @@ public class KitchenFragment extends Fragment {
                 vibrator.vibrate(10);
                 if (switch1Button.isChecked()) {
                     TimeScheduler.kitchenSwitch1StartTimer();
-                    switch1Time.setTextColor(ContextCompat.getColor(getContext(), R.color.md_green_500));
+                    switch1Time.setTextColor(getResources().getColor(R.color.md_green_500));
                     if (!switchBoardFragment.getIsDeviceConnected())
                         Toast.makeText(getActivity(), "Please Connect the device first..!!", Toast.LENGTH_SHORT).show();
                 } else {
                     TimeScheduler.kitchenSwitch1StopTimer();
-                    switch1Time.setTextColor(ContextCompat.getColor(getContext(), R.color.md_red_500));
+                    switch1Time.setTextColor(getResources().getColor(R.color.md_red_500));
                     if (!switchBoardFragment.getIsDeviceConnected())
                         Toast.makeText(getActivity(), "Please Connect the device first..!!", Toast.LENGTH_SHORT).show();
                 }
@@ -87,12 +89,12 @@ public class KitchenFragment extends Fragment {
                 vibrator.vibrate(10);
                 if (switch2Button.isChecked()) {
                     TimeScheduler.kitchenSwitch2StartTimer();
-                    switch2Time.setTextColor(ContextCompat.getColor(getContext(), R.color.md_green_500));
+                    switch2Time.setTextColor(getResources().getColor(R.color.md_green_500));
                     if (!switchBoardFragment.getIsDeviceConnected())
                         Toast.makeText(getActivity(), "Please Connect the device first..!!", Toast.LENGTH_SHORT).show();
                 } else {
                     TimeScheduler.kitchenSwitch2StopTimer();
-                    switch2Time.setTextColor(ContextCompat.getColor(getContext(), R.color.md_red_500));
+                    switch2Time.setTextColor(getResources().getColor(R.color.md_red_500));
                     if (!switchBoardFragment.getIsDeviceConnected())
                         Toast.makeText(getActivity(), "Please Connect the device first..!!", Toast.LENGTH_SHORT).show();
                 }
@@ -105,12 +107,12 @@ public class KitchenFragment extends Fragment {
                 vibrator.vibrate(10);
                 if (switch3Button.isChecked()) {
                     TimeScheduler.kitchenSwitch3StartTimer();
-                    switch3Time.setTextColor(ContextCompat.getColor(getContext(), R.color.md_green_500));
+                    switch3Time.setTextColor(getResources().getColor(R.color.md_green_500));
                     if (!switchBoardFragment.getIsDeviceConnected())
                         Toast.makeText(getActivity(), "Please Connect the device first..!!", Toast.LENGTH_SHORT).show();
                 } else {
                     TimeScheduler.kitchenSwitch3StopTimer();
-                    switch3Time.setTextColor(ContextCompat.getColor(getContext(), R.color.md_red_500));
+                    switch3Time.setTextColor(getResources().getColor(R.color.md_red_500));
                     if (!switchBoardFragment.getIsDeviceConnected())
                         Toast.makeText(getActivity(), "Please Connect the device first..!!", Toast.LENGTH_SHORT).show();
                 }
@@ -123,12 +125,12 @@ public class KitchenFragment extends Fragment {
                 vibrator.vibrate(10);
                 if (switch4Button.isChecked()) {
                     TimeScheduler.kitchenSwitch4StartTimer();
-                    switch4Time.setTextColor(ContextCompat.getColor(getContext(), R.color.md_green_500));
+                    switch4Time.setTextColor(getResources().getColor(R.color.md_green_500));
                     if (!switchBoardFragment.getIsDeviceConnected())
                         Toast.makeText(getActivity(), "Please Connect the device first..!!", Toast.LENGTH_SHORT).show();
                 } else {
                     TimeScheduler.kitchenSwitch4StopTimer();
-                    switch4Time.setTextColor(ContextCompat.getColor(getContext(), R.color.md_red_500));
+                    switch4Time.setTextColor(getResources().getColor(R.color.md_red_500));
                     if (!switchBoardFragment.getIsDeviceConnected())
                         Toast.makeText(getActivity(), "Please Connect the device first..!!", Toast.LENGTH_SHORT).show();
                 }
@@ -141,12 +143,12 @@ public class KitchenFragment extends Fragment {
                 vibrator.vibrate(10);
                 if (switch5Button.isChecked()) {
                     TimeScheduler.kitchenSwitch5StartTimer();
-                    switch5Time.setTextColor(ContextCompat.getColor(getContext(), R.color.md_green_500));
+                    switch5Time.setTextColor(getResources().getColor(R.color.md_green_500));
                     if (!switchBoardFragment.getIsDeviceConnected())
                         Toast.makeText(getActivity(), "Please Connect the device first..!!", Toast.LENGTH_SHORT).show();
                 } else {
                     TimeScheduler.kitchenSwitch5StopTimer();
-                    switch5Time.setTextColor(ContextCompat.getColor(getContext(), R.color.md_red_500));
+                    switch5Time.setTextColor(getResources().getColor(R.color.md_red_500));
                     if (!switchBoardFragment.getIsDeviceConnected())
                         Toast.makeText(getActivity(), "Please Connect the device first..!!", Toast.LENGTH_SHORT).show();
                 }
@@ -159,12 +161,12 @@ public class KitchenFragment extends Fragment {
                 vibrator.vibrate(10);
                 if (switch6Button.isChecked()) {
                     TimeScheduler.kitchenSwitch6StartTimer();
-                    switch6Time.setTextColor(ContextCompat.getColor(getContext(), R.color.md_green_500));
+                    switch6Time.setTextColor(getResources().getColor(R.color.md_green_500));
                     if (!switchBoardFragment.getIsDeviceConnected())
                         Toast.makeText(getActivity(), "Please Connect the device first..!!", Toast.LENGTH_SHORT).show();
                 } else {
                     TimeScheduler.kitchenSwitch6StopTimer();
-                    switch6Time.setTextColor(ContextCompat.getColor(getContext(), R.color.md_red_500));
+                    switch6Time.setTextColor(getResources().getColor(R.color.md_red_500));
                     if (!switchBoardFragment.getIsDeviceConnected())
                         Toast.makeText(getActivity(), "Please Connect the device first..!!", Toast.LENGTH_SHORT).show();
                 }
@@ -177,12 +179,12 @@ public class KitchenFragment extends Fragment {
                 vibrator.vibrate(10);
                 if (switch7Button.isChecked()) {
                     TimeScheduler.kitchenSwitch7StartTimer();
-                    switch7Time.setTextColor(ContextCompat.getColor(getContext(), R.color.md_green_500));
+                    switch7Time.setTextColor(getResources().getColor(R.color.md_green_500));
                     if (!switchBoardFragment.getIsDeviceConnected())
                         Toast.makeText(getActivity(), "Please Connect the device first..!!", Toast.LENGTH_SHORT).show();
                 } else {
                     TimeScheduler.kitchenSwitch7StopTimer();
-                    switch7Time.setTextColor(ContextCompat.getColor(getContext(), R.color.md_red_500));
+                    switch7Time.setTextColor(getResources().getColor(R.color.md_red_500));
                     if (!switchBoardFragment.getIsDeviceConnected())
                         Toast.makeText(getActivity(), "Please Connect the device first..!!", Toast.LENGTH_SHORT).show();
                 }

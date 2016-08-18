@@ -39,22 +39,22 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
-                    android:layout_weight="0.60"
+                    android:layout_weight="0.50"
                     android:gravity="center"
                     android:orientation="horizontal"
                     android:weightSum="1">
 
                     <ImageView
                         android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="0.35"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.25"
                         android:background="@mipmap/switch1" />
 
                     <LinearLayout
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_marginLeft="@dimen/padding_medium_10dp"
-                        android:layout_weight="0.65"
+                        android:layout_weight="0.75"
                         android:gravity="center"
                         android:orientation="vertical"
                         android:weightSum="1">
@@ -117,7 +117,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
-                    android:layout_weight="0.20"
+                    android:layout_weight="0.30"
                     android:gravity="center"
                     android:text="Switch"
                     android:textAppearance="@style/TextAppearance.AppCompat.Title"
@@ -160,7 +160,7 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
-                    android:layout_weight="0.60"
+                    android:layout_weight="0.50"
                     android:gravity="center"
                     android:orientation="horizontal"
                     android:weightSum="1">
@@ -168,13 +168,13 @@
                     <ImageView
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
-                        android:layout_weight="0.35"
-                        android:background="@drawable/electricity" />
+                        android:layout_weight="0.25"
+                        android:background="@mipmap/electricity" />
 
                     <LinearLayout
                         android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="0.65"
+                        android:layout_height="match_parent"
+                        android:layout_weight="0.75"
                         android:gravity="center"
                         android:orientation="vertical"
                         android:weightSum="1">
@@ -183,16 +183,15 @@
                             android:id="@+id/dashboard_room_electricity_value"
                             android:layout_width="wrap_content"
                             android:layout_height="0dp"
-                            android:layout_weight="0.50"
+                            android:layout_weight="0.75"
                             android:text="2.0"
-                            android:gravity="center"
                             android:textAppearance="@style/TextAppearance.AppCompat.Display1"
                             android:textColor="@color/md_deep_purple_500" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="0dp"
-                            android:layout_weight="0.50"
+                            android:layout_weight="0.25"
                             android:text="units"
                             android:textAppearance="@style/TextAppearance.AppCompat.Small"
                             android:textColor="@color/md_deep_purple_500" />
@@ -202,7 +201,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
-                    android:layout_weight="0.20"
+                    android:layout_weight="0.30"
                     android:gravity="center"
                     android:text="Electric Unit"
                     android:textAppearance="@style/TextAppearance.AppCompat.Title"
@@ -250,7 +249,7 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
-                    android:layout_weight="0.60"
+                    android:layout_weight="0.50"
                     android:gravity="center"
                     android:orientation="horizontal"
                     android:weightSum="1">
@@ -260,7 +259,7 @@
                         android:layout_height="match_parent"
                         android:layout_gravity="center"
                         android:layout_weight="0.50"
-                        android:background="@drawable/climate" />
+                        android:background="@mipmap/climate" />
 
                     <TextSwitcher
                         android:id="@+id/dashboard_room_climate_value"
@@ -276,7 +275,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
-                    android:layout_weight="0.20"
+                    android:layout_weight="0.30"
                     android:gravity="center"
                     android:text="Climate"
                     android:textAppearance="@style/TextAppearance.AppCompat.Title"
@@ -318,7 +317,7 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
-                    android:layout_weight="0.60"
+                    android:layout_weight="0.50"
                     android:orientation="horizontal"
                     android:weightSum="1">
 
@@ -327,7 +326,7 @@
                         android:layout_height="match_parent"
                         android:layout_gravity="center"
                         android:layout_weight="0.50"
-                        android:background="@drawable/load"
+                        android:background="@mipmap/load"
                         android:gravity="left|center" />
 
                     <TextSwitcher
@@ -356,7 +355,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
-                    android:layout_weight="0.20"
+                    android:layout_weight="0.30"
                     android:gravity="center"
                     android:text="Electric Load"
                     android:textAppearance="@style/TextAppearance.AppCompat.Title"
@@ -404,7 +403,7 @@
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/electricity1" />
+                    android:background="@mipmap/electricity1" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -443,7 +442,7 @@
                     android:layout_height="0dp"
                     android:layout_alignBottom="@+id/view"
                     android:layout_weight="0.80"
-                    android:background="@drawable/health_ok2" />
+                    android:background="@mipmap/health_ok2" />
 
                 <TextView
                     android:layout_width="wrap_content"

@@ -5,7 +5,7 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 
 /**
- * Created by GodwinRoseSamuel on 24-07-2016.
+ * Created by GodwinRoseSamuel on 19-07-2016.
  */
 public class InternetResolver {
     public static boolean isInternetAvailable(Context context) {

@@ -3,6 +3,9 @@ package com.friuno;
 import android.content.Context;
 import android.widget.ArrayAdapter;
 
+/**
+ * Created by GodwinRoseSamuel on 21-07-2016.
+ */
 public class ConnectionModeAdapter extends ArrayAdapter<String> {
 
     public ConnectionModeAdapter(Context context, int simple_spinner_item, String[] stringArray) {

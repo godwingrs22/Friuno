@@ -7,7 +7,6 @@ import android.os.Handler;
 import android.os.Message;
 import android.os.Vibrator;
 import android.support.v4.app.Fragment;
-import android.support.v4.content.ContextCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,6 +19,9 @@ import com.friuno.fragment.SwitchBoardFragment;
 import com.friuno.timer.TimeScheduler;
 import com.friuno.util.Constants;
 
+/**
+ * Created by GodwinRoseSamuel on 15-01-2016.
+ */
 public class BedRoomFragment extends Fragment {
 
     private static final String TAG = "BedRoomFragment";
@@ -63,12 +65,12 @@ public class BedRoomFragment extends Fragment {
                 vibrator.vibrate(10);
                 if (switch1Button.isChecked()) {
                     TimeScheduler.bedRoomSwitch1StartTimer();
-                    switch1Time.setTextColor(ContextCompat.getColor(getContext(), R.color.md_green_500));
+                    switch1Time.setTextColor(getResources().getColor(R.color.md_green_500));
                     if (!switchBoardFragment.getIsDeviceConnected())
                         Toast.makeText(getActivity(), "Please Connect the device first..!!", Toast.LENGTH_SHORT).show();
                 } else {
                     TimeScheduler.bedRoomSwitch1StopTimer();
-                    switch1Time.setTextColor(ContextCompat.getColor(getContext(),R.color.md_red_500));
+                    switch1Time.setTextColor(getResources().getColor(R.color.md_red_500));
                     if (!switchBoardFragment.getIsDeviceConnected())
                         Toast.makeText(getActivity(), "Please Connect the device first..!!", Toast.LENGTH_SHORT).show();
                 }
@@ -81,12 +83,12 @@ public class BedRoomFragment extends Fragment {
                 vibrator.vibrate(10);
                 if (switch2Button.isChecked()) {
                     TimeScheduler.bedRoomSwitch2StartTimer();
-                    switch2Time.setTextColor(ContextCompat.getColor(getContext(),R.color.md_green_500));
+                    switch2Time.setTextColor(getResources().getColor(R.color.md_green_500));
                     if (!switchBoardFragment.getIsDeviceConnected())
                         Toast.makeText(getActivity(), "Please Connect the device first..!!", Toast.LENGTH_SHORT).show();
                 } else {
                     TimeScheduler.bedRoomSwitch2StopTimer();
-                    switch2Time.setTextColor(ContextCompat.getColor(getContext(), R.color.md_red_500));
+                    switch2Time.setTextColor(getResources().getColor(R.color.md_red_500));
                     if (!switchBoardFragment.getIsDeviceConnected())
                         Toast.makeText(getActivity(), "Please Connect the device first..!!", Toast.LENGTH_SHORT).show();
                 }
@@ -99,12 +101,12 @@ public class BedRoomFragment extends Fragment {
                 vibrator.vibrate(10);
                 if (switch3Button.isChecked()) {
                     TimeScheduler.bedRoomSwitch3StartTimer();
-                    switch3Time.setTextColor(ContextCompat.getColor(getContext(), R.color.md_green_500));
+                    switch3Time.setTextColor(getResources().getColor(R.color.md_green_500));
                     if (!switchBoardFragment.getIsDeviceConnected())
                         Toast.makeText(getActivity(), "Please Connect the device first..!!", Toast.LENGTH_SHORT).show();
                 } else {
                     TimeScheduler.bedRoomSwitch3StopTimer();
-                    switch3Time.setTextColor(ContextCompat.getColor(getContext(), R.color.md_red_500));
+                    switch3Time.setTextColor(getResources().getColor(R.color.md_red_500));
                     if (!switchBoardFragment.getIsDeviceConnected())
                         Toast.makeText(getActivity(), "Please Connect the device first..!!", Toast.LENGTH_SHORT).show();
                 }
@@ -117,12 +119,12 @@ public class BedRoomFragment extends Fragment {
                 vibrator.vibrate(10);
                 if (switch4Button.isChecked()) {
                     TimeScheduler.bedRoomSwitch4StartTimer();
-                    switch4Time.setTextColor(ContextCompat.getColor(getContext(), R.color.md_green_500));
+                    switch4Time.setTextColor(getResources().getColor(R.color.md_green_500));
                     if (!switchBoardFragment.getIsDeviceConnected())
                         Toast.makeText(getActivity(), "Please Connect the device first..!!", Toast.LENGTH_SHORT).show();
                 } else {
                     TimeScheduler.bedRoomSwitch4StopTimer();
-                    switch4Time.setTextColor(ContextCompat.getColor(getContext(), R.color.md_red_500));
+                    switch4Time.setTextColor(getResources().getColor(R.color.md_red_500));
                     if (!switchBoardFragment.getIsDeviceConnected())
                         Toast.makeText(getActivity(), "Please Connect the device first..!!", Toast.LENGTH_SHORT).show();
                 }
@@ -135,12 +137,12 @@ public class BedRoomFragment extends Fragment {
                 vibrator.vibrate(10);
                 if (switch5Button.isChecked()) {
                     TimeScheduler.bedRoomSwitch5StartTimer();
-                    switch5Time.setTextColor(ContextCompat.getColor(getContext(), R.color.md_green_500));
+                    switch5Time.setTextColor(getResources().getColor(R.color.md_green_500));
                     if (!switchBoardFragment.getIsDeviceConnected())
                         Toast.makeText(getActivity(), "Please Connect the device first..!!", Toast.LENGTH_SHORT).show();
                 } else {
                     TimeScheduler.bedRoomSwitch5StopTimer();
-                    switch5Time.setTextColor(ContextCompat.getColor(getContext(), R.color.md_red_500));
+                    switch5Time.setTextColor(getResources().getColor(R.color.md_red_500));
                     if (!switchBoardFragment.getIsDeviceConnected())
                         Toast.makeText(getActivity(), "Please Connect the device first..!!", Toast.LENGTH_SHORT).show();
                 }

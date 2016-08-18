@@ -1,15 +1,17 @@
 package com.friuno.fragment;
 
+import android.app.AlertDialog;
+import android.app.ProgressDialog;
 import android.content.ActivityNotFoundException;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.content.ContextCompat;
-import android.support.v7.app.AlertDialog;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -17,15 +19,20 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.friuno.AppController;
 import com.friuno.LogInActivity;
+import com.friuno.MainActivity;
 import com.friuno.R;
+import com.google.android.gms.auth.api.Auth;
+import com.google.android.gms.common.api.ResultCallback;
+import com.google.android.gms.common.api.Status;
 
 import org.eazegraph.lib.charts.ValueLineChart;
 import org.eazegraph.lib.models.ValueLinePoint;
 import org.eazegraph.lib.models.ValueLineSeries;
 
 /**
- * Created by GodwinRoseSamuel on 20-07-2016.
+ * Created by GodwinRoseSamuel on 30-07-2016.
  */
 public class StatisticsFragment extends Fragment {
 
@@ -73,7 +80,7 @@ public class StatisticsFragment extends Fragment {
                 break;
             }
             case R.id.action_settings_about: {
-                new AlertDialog.Builder(getActivity(), R.style.Theme_AppCompat_Dialog_Alert)
+                new AlertDialog.Builder(getActivity(), AlertDialog.THEME_DEVICE_DEFAULT_DARK)
                         .setTitle("About Friuno")
                         .setMessage("Friuno\n------------------------\nVersion:1.0.3\n\nDeveloped By:\nGodwin Rose Samuel\nwww.friuno.com"
                                 + "\n\nSupport by Email:\ncontactus@friuno.com"
@@ -87,14 +94,13 @@ public class StatisticsFragment extends Fragment {
                 break;
             }
             case R.id.action_settings_logout: {
-                new AlertDialog.Builder(getActivity(),R.style.Theme_AppCompat_Dialog_Alert)
+                new AlertDialog.Builder(getActivity(), AlertDialog.THEME_DEVICE_DEFAULT_DARK)
                         .setTitle("Logout")
                         .setMessage("Are you sure you want to log out?")
                         .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
-                                Intent i = new Intent(getContext(), LogInActivity.class);
-                                startActivity(i);
+                                new SignOutThread().execute();
                             }
                         })
                         .setNegativeButton("No", new DialogInterface.OnClickListener() {
@@ -107,6 +113,68 @@ public class StatisticsFragment extends Fragment {
             }
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    private void signOut() {
+        Auth.GoogleSignInApi.signOut(AppController.getInstance().getGoogleApiHelper().getGoogleApiClient()).setResultCallback(
+                new ResultCallback<Status>() {
+                    @Override
+                    public void onResult(Status status) {
+                    }
+                });
+    }
+
+    private void revokeAccess() {
+        Auth.GoogleSignInApi.revokeAccess(AppController.getInstance().getGoogleApiHelper().getGoogleApiClient()).setResultCallback(
+                new ResultCallback<Status>() {
+                    @Override
+                    public void onResult(Status status) {
+                    }
+                });
+    }
+    private class SignOutThread extends AsyncTask<String, Void, Void> {
+
+        ProgressDialog progressDialog;
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+            progressDialog = new ProgressDialog(getActivity());
+            progressDialog.setMessage("Logging Out...");
+            progressDialog.setCancelable(false);
+            progressDialog.show();
+        }
+
+        @Override
+        protected Void doInBackground(String... params) {
+            try {
+                Thread.sleep(1000);
+                signOut();
+                revokeAccess();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(Void result) {
+            super.onPostExecute(result);
+            progressDialog.dismiss();
+            getActivity().finish();
+            Intent intent = new Intent(getContext(), LogInActivity.class);
+            startActivity(intent);
+        }
+    }
+
+    private void updateUI(boolean isSignedIn) {
+        if (isSignedIn) {
+            Log.d(TAG, "User is SignedIN!");
+        } else {
+            Log.e(TAG, "<---User is SignedOUT--->");
+            Intent intent = new Intent(getActivity(), LogInActivity.class);
+            startActivity(intent);
+        }
     }
 
     @Override
@@ -146,7 +214,8 @@ public class StatisticsFragment extends Fragment {
 
     public void setPowerStatsView() {
         ValueLineSeries powerStatSeries = new ValueLineSeries();
-        powerStatSeries.setColor(ContextCompat.getColor(context, R.color.md_deep_orange_500));
+        powerStatSeries.setColor(getResources().getColor(R.color.md_deep_orange_500));
+
         powerStatSeries.addPoint(new ValueLinePoint("Jan", 41));
         powerStatSeries.addPoint(new ValueLinePoint("Feb", 23));
         powerStatSeries.addPoint(new ValueLinePoint("Mar", 56));

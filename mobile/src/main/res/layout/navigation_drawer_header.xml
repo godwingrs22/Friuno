@@ -9,7 +9,7 @@
         android:id="@+id/coverPhoto"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/product"
+        android:background="@drawable/purple"
         android:scaleType="centerCrop" />
 
     <de.hdodenhof.circleimageview.CircleImageView
@@ -18,7 +18,6 @@
         android:layout_height="64dp"
         android:layout_marginLeft="16dp"
         android:layout_marginTop="@dimen/navigation_drawer_header_margin"
-
         android:scaleType="centerCrop" />
 
     <LinearLayout
@@ -36,7 +35,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="Android Demo"
             android:gravity="center_vertical"
             android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
 
@@ -46,7 +44,6 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:gravity="center_vertical"
-            android:text="demo@friuno.com"
             android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
 
     </LinearLayout>

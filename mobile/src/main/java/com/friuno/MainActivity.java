@@ -1,5 +1,6 @@
 package com.friuno;
 
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
@@ -23,7 +24,6 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
-import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.text.Html;
@@ -40,25 +40,30 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.friuno.arduino.ArduinoConstants;
 import com.friuno.arduino.ArduinoController;
 import com.friuno.fragment.DashBoardFragment;
 import com.friuno.fragment.LocationFragment;
 import com.friuno.fragment.StatisticsFragment;
 import com.friuno.fragment.SwitchBoardFragment;
 import com.friuno.fragment.TimerFragment;
-import com.google.android.gms.common.ConnectionResult;
+import com.google.android.gms.auth.api.Auth;
+import com.google.android.gms.common.api.ResultCallback;
+import com.google.android.gms.common.api.Status;
+import com.squareup.picasso.Picasso;
 
+/**
+ * Created by GodwinRoseSamuel on 23-07-2016.
+ */
 public class MainActivity extends AppCompatActivity {
 
     private static final String TAG = "MainActivity";
-    private static final int RC_SIGN_IN = 0;
     private static final int PROFILE_PIC_SIZE = 400;
     private static final int NAVIGATION_VIEW_ACTION = 203;
     private static final int BLUETOOTH_TURN_ON_REQUEST_CODE = 101;
     private static final int BLUETOOTH_PAIR_REQUEST_CODE = 102;
 
     private boolean mIntentInProgress;
-    private ConnectionResult mConnectionResult = new ConnectionResult(RC_SIGN_IN, null);
 
     private Boolean doubleBackToExitPressedOnce = false;
     private Boolean isSavedInstance = false;
@@ -86,11 +91,6 @@ public class MainActivity extends AppCompatActivity {
     private static ArduinoController arduinoController = null;
     private static Boolean isDeviceConnected = false;
     int i = 0;
-
-    private static TextView userName;
-    private static TextView userEmail;
-    private static ImageView userPhoto;
-    private static ImageView coverLayout;
 
     DashBoardFragment dashBoardFragment = new DashBoardFragment();
     Fragment switchBoardFragment = new SwitchBoardFragment();
@@ -179,10 +179,15 @@ public class MainActivity extends AppCompatActivity {
             setupNavigationDrawerContent(navigationView);
         }
 
-        userName = (TextView) navigationView.findViewById(R.id.userName);
-        userEmail = (TextView) navigationView.findViewById(R.id.userEmail);
-        userPhoto = (ImageView) navigationView.findViewById(R.id.userPhoto);
-        coverLayout = (ImageView) navigationView.findViewById(R.id.coverPhoto);
+        ((TextView) navigationView.getHeaderView(0).findViewById(R.id.userName)).setText(getIntent().getStringExtra("name"));
+        ((TextView) navigationView.getHeaderView(0).findViewById(R.id.userEmail)).setText(getIntent().getStringExtra("email"));
+
+        Picasso.with(getApplicationContext())
+                .load(Uri.parse(getIntent().getStringExtra("image")))
+                .placeholder(R.drawable.profile_placeholder)
+                .error(R.drawable.profile_placeholder)
+                .resize(256, 256)
+                .into((ImageView) navigationView.getHeaderView(0).findViewById(R.id.userPhoto));
 
         setupNavigationDrawerContent(navigationView);
 
@@ -245,7 +250,6 @@ public class MainActivity extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
 
         switch (requestCode) {
-
             case BLUETOOTH_TURN_ON_REQUEST_CODE: {
                 if (arduinoController.isBluetoothEnabled()) {
                     Toast.makeText(getApplicationContext(), "Bluetooth Turned on", Toast.LENGTH_SHORT).show();
@@ -284,6 +288,7 @@ public class MainActivity extends AppCompatActivity {
     public void onResume() {
         super.onResume();
         Log.d(TAG, "<----In onResume---->");
+
         Log.d(TAG, "<----isDeviceConnected---->" + isDeviceConnected);
         if (!isDeviceConnected) {
             Log.d(TAG, "<----connectionMode.getSelectedItem()---->" + connectionMode.getSelectedItem().toString());
@@ -353,8 +358,8 @@ public class MainActivity extends AppCompatActivity {
         if (address != null) {
             arduinoController.connectArduinoViaBluetooth(address);
             if (arduinoController.isArduinoConnectedviaBluetoothStatus()) {
-//                arduinoController.readData();
-//                arduinoController.sendData(ArduinoConstants.STATUS);
+                arduinoController.readData();
+                arduinoController.sendData(ArduinoConstants.STATUS);
                 getApplicationContext().registerReceiver(bluetoothReceiver, new IntentFilter(BluetoothDevice.ACTION_ACL_CONNECTED));
                 getApplicationContext().registerReceiver(bluetoothReceiver, new IntentFilter(BluetoothDevice.ACTION_ACL_DISCONNECTED));
                 isConnected = true;
@@ -382,7 +387,7 @@ public class MainActivity extends AppCompatActivity {
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
-            progressDialog = new ProgressDialog(MainActivity.this, R.style.Theme_AppCompat_Dialog_Alert);
+            progressDialog = new ProgressDialog(MainActivity.this);
             progressDialog.setTitle("Please Wait..");
             progressDialog.setMessage("Connecting to Friuno....");
             progressDialog.setCancelable(false);
@@ -411,6 +416,7 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(), "Could Not Connect to Friuno\nPlease Check whether the device is turned on and paired", Toast.LENGTH_LONG).show();
             }
         }
+
     }
 
     @Override
@@ -443,9 +449,9 @@ public class MainActivity extends AppCompatActivity {
                 break;
             }
             case R.id.action_about: {
-                new AlertDialog.Builder(this, R.style.Theme_AppCompat_Dialog_Alert)
+                new AlertDialog.Builder(this)
                         .setTitle("About Friuno")
-                        .setMessage("Friuno\n------------------------\nVersion:1.0.6\n\nDeveloped By:\nGodwin Rose Samuel\nwww.friuno.com"
+                        .setMessage("Friuno\n------------------------\nVersion:1.0.3\n\nDeveloped By:\nGodwin Rose Samuel\nwww.friuno.com"
                                 + "\n\nSupport by Email:\ncontactus@friuno.com"
                                 + "\n\nDISCLAIMER:\n"
                                 + "The user uses the application it on own and sole responsibity."
@@ -457,14 +463,13 @@ public class MainActivity extends AppCompatActivity {
                 break;
             }
             case R.id.action_logout: {
-                new AlertDialog.Builder(this, R.style.Theme_AppCompat_Dialog_Alert)
+                new AlertDialog.Builder(this)
                         .setTitle("Logout")
                         .setMessage("Are you sure you want to log out?")
                         .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
-                                Intent i = new Intent(getApplicationContext(), LogInActivity.class);
-                                startActivity(i);
+                                new SignOutThread().execute();
                             }
                         })
                         .setNegativeButton("No", new DialogInterface.OnClickListener() {
@@ -477,6 +482,60 @@ public class MainActivity extends AppCompatActivity {
             }
         }
         return super.onOptionsItemSelected(item);
+    }
+
+
+    private void signOut() {
+        Auth.GoogleSignInApi.signOut(AppController.getInstance().getGoogleApiHelper().getGoogleApiClient()).setResultCallback(
+                new ResultCallback<Status>() {
+                    @Override
+                    public void onResult(Status status) {
+                    }
+                });
+    }
+
+    private void revokeAccess() {
+        Auth.GoogleSignInApi.revokeAccess(AppController.getInstance().getGoogleApiHelper().getGoogleApiClient()).setResultCallback(
+                new ResultCallback<Status>() {
+                    @Override
+                    public void onResult(Status status) {
+                    }
+                });
+    }
+
+    private class SignOutThread extends AsyncTask<String, Void, Void> {
+
+        ProgressDialog progressDialog;
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+            progressDialog = new ProgressDialog(MainActivity.this);
+            progressDialog.setMessage("Logging Out...");
+            progressDialog.setCancelable(false);
+            progressDialog.show();
+        }
+
+        @Override
+        protected Void doInBackground(String... params) {
+            try {
+                Thread.sleep(1000);
+                signOut();
+                revokeAccess();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(Void result) {
+            super.onPostExecute(result);
+            progressDialog.dismiss();
+            finish();
+            Intent intent=new Intent(MainActivity.this,LogInActivity.class);
+            startActivity(intent);
+        }
     }
 
     Handler navigationViewHandler = new Handler() {
@@ -509,9 +568,9 @@ public class MainActivity extends AppCompatActivity {
                             break;
                         case R.id.item_navigation_drawer_about:
                             drawerLayout.closeDrawer(GravityCompat.START);
-                            new AlertDialog.Builder(MainActivity.this, R.style.Theme_AppCompat_Dialog_Alert)
+                            new AlertDialog.Builder(MainActivity.this)
                                     .setTitle("About Friuno")
-                                    .setMessage("Friuno\n------------------------\nVersion:1.0.6\n\nDeveloped By:\nGodwin Rose Samuel\nwww.friuno.com"
+                                    .setMessage("Friuno\n------------------------\nVersion:1.0.3\n\nDeveloped By:\nGodwin Rose Samuel\nwww.friuno.com"
                                             + "\n\nSupport by Email:\ncontactus@friuno.com"
                                             + "\n\nDISCLAIMER:\n"
                                             + "The user uses the application it on own and sole responsibility."

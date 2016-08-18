@@ -9,7 +9,6 @@ import android.os.Looper;
 import android.os.Message;
 import android.os.Vibrator;
 import android.support.v4.app.Fragment;
-import android.support.v4.content.ContextCompat;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -27,6 +26,9 @@ import com.friuno.util.Constants;
 
 import java.text.DecimalFormat;
 
+/**
+ * Created by GodwinRoseSamuel on 15-01-2016.
+ */
 public class LivingRoomFragment extends Fragment {
 
     private static final String TAG = "LivingRoomFragment";
@@ -69,100 +71,145 @@ public class LivingRoomFragment extends Fragment {
                                 switch1Time.setTextColor(Color.parseColor("#4caf50"));
                                 switch1Button.setChecked(true);
                                 switchText = String.valueOf(switch1Text.getText()) + " turned ON";
-                                if (switchBoardFragment.getIsDeviceConnected())
+                                if (switchBoardFragment.getIsDeviceConnected()) {
                                     livingRoom_Load = 15;
+                                    livingRoom_Switch_ON = 1;
+                                    livingRoom_Switch_OFF = 7;
+                                } else {
+                                    livingRoom_Load = 30;
+                                    livingRoom_Switch_ON = 3;
+                                    livingRoom_Switch_OFF = 5;
+                                }
+
+                                arduinoController.sendData(ArduinoConstants.SWITCH_1_ON);
                                 break;
                             case Constants.SWITCH_1_OFF:
                                 TimeScheduler.livingRoomSwitch1StopTimer();
                                 switch1Time.setTextColor(Color.parseColor("#f44336"));
                                 switch1Button.setChecked(false);
                                 switchText = String.valueOf(switch1Text.getText()) + " turned OFF";
-                                if (switchBoardFragment.getIsDeviceConnected())
+                                if (switchBoardFragment.getIsDeviceConnected()) {
                                     livingRoom_Load = 0;
+                                    livingRoom_Switch_ON = 0;
+                                    livingRoom_Switch_OFF = 8;
+                                } else {
+                                    livingRoom_Load = 30;
+                                    livingRoom_Switch_ON = 3;
+                                    livingRoom_Switch_OFF = 5;
+                                }
+                                arduinoController.sendData(ArduinoConstants.SWITCH_1_OFF);
                                 break;
                             case Constants.SWITCH_2_ON:
                                 TimeScheduler.livingRoomSwitch2StartTimer();
                                 switch2Time.setTextColor(Color.parseColor("#4caf50"));
                                 switch2Button.setChecked(true);
                                 switchText = String.valueOf(switch2Text.getText()) + " turned ON";
+                                if (switchBoardFragment.getIsDeviceConnected())
+                                    arduinoController.sendData(ArduinoConstants.SWITCH_2_ON);
                                 break;
                             case Constants.SWITCH_2_OFF:
                                 TimeScheduler.livingRoomSwitch2StopTimer();
                                 switch2Time.setTextColor(Color.parseColor("#f44336"));
                                 switch2Button.setChecked(false);
                                 switchText = String.valueOf(switch2Text.getText()) + " turned OFF";
+                                if (switchBoardFragment.getIsDeviceConnected())
+                                    arduinoController.sendData(ArduinoConstants.SWITCH_2_OFF);
                                 break;
                             case Constants.SWITCH_3_ON:
                                 TimeScheduler.livingRoomSwitch3StartTimer();
                                 switch3Time.setTextColor(Color.parseColor("#4caf50"));
                                 switch3Button.setChecked(true);
                                 switchText = String.valueOf(switch3Text.getText()) + " turned ON";
+                                if (switchBoardFragment.getIsDeviceConnected())
+                                    arduinoController.sendData(ArduinoConstants.SWITCH_3_ON);
                                 break;
                             case Constants.SWITCH_3_OFF:
                                 TimeScheduler.livingRoomSwitch3StopTimer();
                                 switch3Time.setTextColor(Color.parseColor("#f44336"));
                                 switch3Button.setChecked(false);
                                 switchText = String.valueOf(switch3Text.getText()) + " turned OFF";
+                                if (switchBoardFragment.getIsDeviceConnected())
+                                    arduinoController.sendData(ArduinoConstants.SWITCH_3_OFF);
                                 break;
                             case Constants.SWITCH_4_ON:
                                 TimeScheduler.livingRoomSwitch4StartTimer();
                                 switch4Time.setTextColor(Color.parseColor("#4caf50"));
                                 switch4Button.setChecked(true);
                                 switchText = String.valueOf(switch4Text.getText()) + " turned ON";
+                                if (switchBoardFragment.getIsDeviceConnected())
+                                    arduinoController.sendData(ArduinoConstants.SWITCH_4_ON);
                                 break;
                             case Constants.SWITCH_4_OFF:
                                 TimeScheduler.livingRoomSwitch4StopTimer();
                                 switch4Time.setTextColor(Color.parseColor("#f44336"));
                                 switch4Button.setChecked(false);
                                 switchText = String.valueOf(switch4Text.getText()) + " turned OFF";
+                                if (switchBoardFragment.getIsDeviceConnected())
+                                    arduinoController.sendData(ArduinoConstants.SWITCH_4_OFF);
                                 break;
                             case Constants.SWITCH_5_ON:
                                 TimeScheduler.livingRoomSwitch5StartTimer();
                                 switch5Time.setTextColor(Color.parseColor("#4caf50"));
                                 switch5Button.setChecked(true);
                                 switchText = String.valueOf(switch5Text.getText()) + " turned ON";
+                                if (switchBoardFragment.getIsDeviceConnected())
+                                    arduinoController.sendData(ArduinoConstants.SWITCH_5_ON);
                                 break;
                             case Constants.SWITCH_5_OFF:
                                 TimeScheduler.livingRoomSwitch5StopTimer();
                                 switch5Time.setTextColor(Color.parseColor("#f44336"));
                                 switch5Button.setChecked(false);
                                 switchText = String.valueOf(switch5Text.getText()) + " turned OFF";
+                                if (switchBoardFragment.getIsDeviceConnected())
+                                    arduinoController.sendData(ArduinoConstants.SWITCH_5_OFF);
                                 break;
                             case Constants.SWITCH_6_ON:
                                 TimeScheduler.livingRoomSwitch6StartTimer();
                                 switch6Time.setTextColor(Color.parseColor("#4caf50"));
                                 switch6Button.setChecked(true);
                                 switchText = String.valueOf(switch6Text.getText()) + " turned ON";
+                                if (switchBoardFragment.getIsDeviceConnected())
+                                    arduinoController.sendData(ArduinoConstants.SWITCH_6_ON);
                                 break;
                             case Constants.SWITCH_6_OFF:
                                 TimeScheduler.livingRoomSwitch6StopTimer();
                                 switch6Time.setTextColor(Color.parseColor("#f44336"));
                                 switch6Button.setChecked(false);
                                 switchText = String.valueOf(switch6Text.getText()) + " turned OFF";
+                                if (switchBoardFragment.getIsDeviceConnected())
+                                    arduinoController.sendData(ArduinoConstants.SWITCH_6_OFF);
                                 break;
                             case Constants.SWITCH_7_ON:
                                 TimeScheduler.livingRoomSwitch7StartTimer();
                                 switch7Time.setTextColor(Color.parseColor("#4caf50"));
                                 switch7Button.setChecked(true);
                                 switchText = String.valueOf(switch7Text.getText()) + " turned ON";
+                                if (switchBoardFragment.getIsDeviceConnected())
+                                    arduinoController.sendData(ArduinoConstants.SWITCH_7_ON);
                                 break;
                             case Constants.SWITCH_7_OFF:
                                 TimeScheduler.livingRoomSwitch7StopTimer();
                                 switch7Time.setTextColor(Color.parseColor("#f44336"));
                                 switch7Button.setChecked(false);
                                 switchText = String.valueOf(switch7Text.getText()) + " turned OFF";
+                                if (switchBoardFragment.getIsDeviceConnected())
+                                    arduinoController.sendData(ArduinoConstants.SWITCH_7_OFF);
                                 break;
                             case Constants.SWITCH_8_ON:
                                 TimeScheduler.livingRoomSwitch8StartTimer();
                                 switch8Time.setTextColor(Color.parseColor("#4caf50"));
                                 switch8Button.setChecked(true);
                                 switchText = String.valueOf(switch8Text.getText()) + " turned ON";
+                                if (switchBoardFragment.getIsDeviceConnected())
+                                    arduinoController.sendData(ArduinoConstants.SWITCH_8_ON);
                                 break;
                             case Constants.SWITCH_8_OFF:
                                 TimeScheduler.livingRoomSwitch8StopTimer();
                                 switch8Time.setTextColor(Color.parseColor("#f44336"));
                                 switch8Button.setChecked(false);
                                 switchText = String.valueOf(switch8Text.getText()) + " turned OFF";
+                                if (switchBoardFragment.getIsDeviceConnected())
+                                    arduinoController.sendData(ArduinoConstants.SWITCH_8_OFF);
                                 break;
                         }
                         Toast.makeText(SwitchBoardFragment.context.getApplicationContext(), switchText, Toast.LENGTH_SHORT).show();
@@ -216,22 +263,30 @@ public class LivingRoomFragment extends Fragment {
                 vibrator.vibrate(10);
                 if (switch1Button.isChecked()) {
                     TimeScheduler.livingRoomSwitch1StartTimer();
-                    switch1Time.setTextColor(ContextCompat.getColor(getContext(), R.color.md_green_500));
+                    switch1Time.setTextColor(getResources().getColor(R.color.md_green_500));
                     if (switchBoardFragment.getIsDeviceConnected()) {
                         livingRoom_Load = 15;
+                        livingRoom_Switch_ON = 1;
+                        livingRoom_Switch_OFF = 7;
+                        arduinoController.sendData(ArduinoConstants.SWITCH_1_ON);
                     } else {
-                        livingRoom_Load = 80;
-                        livingRoom_unit = 20.4;
+                        livingRoom_Load = 30;
+                        livingRoom_Switch_ON = 3;
+                        livingRoom_Switch_OFF = 5;
                         Toast.makeText(getActivity(), "Please Connect the device first..!!", Toast.LENGTH_SHORT).show();
                     }
                 } else {
                     TimeScheduler.livingRoomSwitch1StopTimer();
-                    switch1Time.setTextColor(ContextCompat.getColor(getContext(), R.color.md_red_500));
+                    switch1Time.setTextColor(getResources().getColor(R.color.md_red_500));
                     if (switchBoardFragment.getIsDeviceConnected()) {
                         livingRoom_Load = 0;
+                        livingRoom_Switch_ON = 0;
+                        livingRoom_Switch_OFF = 8;
+                        arduinoController.sendData(ArduinoConstants.SWITCH_1_OFF);
                     } else {
-                        livingRoom_Load = 80;
-                        livingRoom_unit = 20.4;
+                        livingRoom_Load = 30;
+                        livingRoom_Switch_ON = 3;
+                        livingRoom_Switch_OFF = 5;
                         Toast.makeText(getActivity(), "Please Connect the device first..!!", Toast.LENGTH_SHORT).show();
                     }
                 }
@@ -244,13 +299,17 @@ public class LivingRoomFragment extends Fragment {
                 vibrator.vibrate(10);
                 if (switch2Button.isChecked()) {
                     TimeScheduler.livingRoomSwitch2StartTimer();
-                    switch2Time.setTextColor(ContextCompat.getColor(getContext(), R.color.md_green_500));
-                    if (!switchBoardFragment.getIsDeviceConnected())
+                    switch2Time.setTextColor(getResources().getColor(R.color.md_green_500));
+                    if (switchBoardFragment.getIsDeviceConnected())
+                        arduinoController.sendData(ArduinoConstants.SWITCH_2_ON);
+                    else
                         Toast.makeText(getActivity(), "Please Connect the device first..!!", Toast.LENGTH_SHORT).show();
                 } else {
                     TimeScheduler.livingRoomSwitch2StopTimer();
-                    switch2Time.setTextColor(ContextCompat.getColor(getContext(), R.color.md_red_500));
-                    if (!switchBoardFragment.getIsDeviceConnected())
+                    switch2Time.setTextColor(getResources().getColor(R.color.md_red_500));
+                    if (switchBoardFragment.getIsDeviceConnected())
+                        arduinoController.sendData(ArduinoConstants.SWITCH_2_OFF);
+                    else
                         Toast.makeText(getActivity(), "Please Connect the device first..!!", Toast.LENGTH_SHORT).show();
                 }
             }
@@ -262,13 +321,17 @@ public class LivingRoomFragment extends Fragment {
                 vibrator.vibrate(10);
                 if (switch3Button.isChecked()) {
                     TimeScheduler.livingRoomSwitch3StartTimer();
-                    switch3Time.setTextColor(ContextCompat.getColor(getContext(), R.color.md_green_500));
-                    if (!switchBoardFragment.getIsDeviceConnected())
+                    switch3Time.setTextColor(getResources().getColor(R.color.md_green_500));
+                    if (switchBoardFragment.getIsDeviceConnected())
+                        arduinoController.sendData(ArduinoConstants.SWITCH_3_ON);
+                    else
                         Toast.makeText(getActivity(), "Please Connect the device first..!!", Toast.LENGTH_SHORT).show();
                 } else {
                     TimeScheduler.livingRoomSwitch3StopTimer();
-                    switch3Time.setTextColor(ContextCompat.getColor(getContext(), R.color.md_red_500));
-                    if (!switchBoardFragment.getIsDeviceConnected())
+                    switch3Time.setTextColor(getResources().getColor(R.color.md_red_500));
+                    if (switchBoardFragment.getIsDeviceConnected())
+                        arduinoController.sendData(ArduinoConstants.SWITCH_3_OFF);
+                    else
                         Toast.makeText(getActivity(), "Please Connect the device first..!!", Toast.LENGTH_SHORT).show();
                 }
             }
@@ -280,13 +343,17 @@ public class LivingRoomFragment extends Fragment {
                 vibrator.vibrate(10);
                 if (switch4Button.isChecked()) {
                     TimeScheduler.livingRoomSwitch4StartTimer();
-                    switch4Time.setTextColor(ContextCompat.getColor(getContext(), R.color.md_green_500));
-                    if (!switchBoardFragment.getIsDeviceConnected())
+                    switch4Time.setTextColor(getResources().getColor(R.color.md_green_500));
+                    if (switchBoardFragment.getIsDeviceConnected())
+                        arduinoController.sendData(ArduinoConstants.SWITCH_4_ON);
+                    else
                         Toast.makeText(getActivity(), "Please Connect the device first..!!", Toast.LENGTH_SHORT).show();
                 } else {
                     TimeScheduler.livingRoomSwitch4StopTimer();
-                    switch4Time.setTextColor(ContextCompat.getColor(getContext(), R.color.md_red_500));
-                    if (!switchBoardFragment.getIsDeviceConnected())
+                    switch4Time.setTextColor(getResources().getColor(R.color.md_red_500));
+                    if (switchBoardFragment.getIsDeviceConnected())
+                        arduinoController.sendData(ArduinoConstants.SWITCH_4_OFF);
+                    else
                         Toast.makeText(getActivity(), "Please Connect the device first..!!", Toast.LENGTH_SHORT).show();
                 }
             }
@@ -298,13 +365,17 @@ public class LivingRoomFragment extends Fragment {
                 vibrator.vibrate(10);
                 if (switch5Button.isChecked()) {
                     TimeScheduler.livingRoomSwitch5StartTimer();
-                    switch5Time.setTextColor(ContextCompat.getColor(getContext(), R.color.md_green_500));
-                    if (!switchBoardFragment.getIsDeviceConnected())
+                    switch5Time.setTextColor(getResources().getColor(R.color.md_green_500));
+                    if (switchBoardFragment.getIsDeviceConnected())
+                        arduinoController.sendData(ArduinoConstants.SWITCH_5_ON);
+                    else
                         Toast.makeText(getActivity(), "Please Connect the device first..!!", Toast.LENGTH_SHORT).show();
                 } else {
                     TimeScheduler.livingRoomSwitch5StopTimer();
-                    switch5Time.setTextColor(ContextCompat.getColor(getContext(), R.color.md_red_500));
-                    if (!switchBoardFragment.getIsDeviceConnected())
+                    switch5Time.setTextColor(getResources().getColor(R.color.md_red_500));
+                    if (switchBoardFragment.getIsDeviceConnected())
+                        arduinoController.sendData(ArduinoConstants.SWITCH_5_OFF);
+                    else
                         Toast.makeText(getActivity(), "Please Connect the device first..!!", Toast.LENGTH_SHORT).show();
                 }
             }
@@ -316,13 +387,17 @@ public class LivingRoomFragment extends Fragment {
                 vibrator.vibrate(10);
                 if (switch6Button.isChecked()) {
                     TimeScheduler.livingRoomSwitch6StartTimer();
-                    switch6Time.setTextColor(ContextCompat.getColor(getContext(), R.color.md_green_500));
-                    if (!switchBoardFragment.getIsDeviceConnected())
+                    switch6Time.setTextColor(getResources().getColor(R.color.md_green_500));
+                    if (switchBoardFragment.getIsDeviceConnected())
+                        arduinoController.sendData(ArduinoConstants.SWITCH_6_ON);
+                    else
                         Toast.makeText(getActivity(), "Please Connect the device first..!!", Toast.LENGTH_SHORT).show();
                 } else {
                     TimeScheduler.livingRoomSwitch6StopTimer();
-                    switch6Time.setTextColor(ContextCompat.getColor(getContext(), R.color.md_red_500));
-                    if (!switchBoardFragment.getIsDeviceConnected())
+                    switch6Time.setTextColor(getResources().getColor(R.color.md_red_500));
+                    if (switchBoardFragment.getIsDeviceConnected())
+                        arduinoController.sendData(ArduinoConstants.SWITCH_6_OFF);
+                    else
                         Toast.makeText(getActivity(), "Please Connect the device first..!!", Toast.LENGTH_SHORT).show();
                 }
             }
@@ -334,13 +409,17 @@ public class LivingRoomFragment extends Fragment {
                 vibrator.vibrate(10);
                 if (switch7Button.isChecked()) {
                     TimeScheduler.livingRoomSwitch7StartTimer();
-                    switch7Time.setTextColor(ContextCompat.getColor(getContext(), R.color.md_green_500));
-                    if (!switchBoardFragment.getIsDeviceConnected())
+                    switch7Time.setTextColor(getResources().getColor(R.color.md_green_500));
+                    if (switchBoardFragment.getIsDeviceConnected())
+                        arduinoController.sendData(ArduinoConstants.SWITCH_7_ON);
+                    else
                         Toast.makeText(getActivity(), "Please Connect the device first..!!", Toast.LENGTH_SHORT).show();
                 } else {
                     TimeScheduler.livingRoomSwitch7StopTimer();
-                    switch7Time.setTextColor(ContextCompat.getColor(getContext(), R.color.md_red_500));
-                    if (!switchBoardFragment.getIsDeviceConnected())
+                    switch7Time.setTextColor(getResources().getColor(R.color.md_red_500));
+                    if (switchBoardFragment.getIsDeviceConnected())
+                        arduinoController.sendData(ArduinoConstants.SWITCH_7_OFF);
+                    else
                         Toast.makeText(getActivity(), "Please Connect the device first..!!", Toast.LENGTH_SHORT).show();
                 }
             }
@@ -352,13 +431,17 @@ public class LivingRoomFragment extends Fragment {
                 vibrator.vibrate(10);
                 if (switch8Button.isChecked()) {
                     TimeScheduler.livingRoomSwitch8StartTimer();
-                    switch8Time.setTextColor(ContextCompat.getColor(getContext(), R.color.md_green_500));
-                    if (!switchBoardFragment.getIsDeviceConnected())
+                    switch8Time.setTextColor(getResources().getColor(R.color.md_green_500));
+                    if (switchBoardFragment.getIsDeviceConnected())
+                        arduinoController.sendData(ArduinoConstants.SWITCH_8_ON);
+                    else
                         Toast.makeText(getActivity(), "Please Connect the device first..!!", Toast.LENGTH_SHORT).show();
                 } else {
                     TimeScheduler.livingRoomSwitch8StopTimer();
-                    switch8Time.setTextColor(ContextCompat.getColor(getContext(), R.color.md_red_500));
-                    if (!switchBoardFragment.getIsDeviceConnected())
+                    switch8Time.setTextColor(getResources().getColor(R.color.md_red_500));
+                    if (switchBoardFragment.getIsDeviceConnected())
+                        arduinoController.sendData(ArduinoConstants.SWITCH_8_OFF);
+                    else
                         Toast.makeText(getActivity(), "Please Connect the device first..!!", Toast.LENGTH_SHORT).show();
                 }
             }
@@ -406,61 +489,64 @@ public class LivingRoomFragment extends Fragment {
                 case RECIEVE_MESSAGE:
                     char data = (char) msg.obj;
                     Log.d(TAG, "<----Received Data from Arduino ---->" + data);
-
-                    if (data == ArduinoConstants.SWITCH_1_ON) {
-                        TimeScheduler.livingRoomSwitch1StartTimer();
-                        switch1Time.setTextColor(Color.parseColor("#4caf50"));
-                        livingRoom_Load = 15;
-                        switch1Button.setChecked(true);
-                    } else if (data == ArduinoConstants.SWITCH_1_OFF) {
-                        TimeScheduler.livingRoomSwitch1StopTimer();
-                        switch1Time.setTextColor(Color.parseColor("#f44336"));
-                        livingRoom_Load = 0;
-                        switch1Button.setChecked(false);
-                    } else if (data == ArduinoConstants.SWITCH_2_ON) {
-                        switch2Time.setTextColor(Color.parseColor("#4caf50"));
-                        switch2Button.setChecked(true);
-                    } else if (data == ArduinoConstants.SWITCH_2_OFF) {
-                        switch2Time.setTextColor(Color.parseColor("#f44336"));
-                        switch2Button.setChecked(false);
-                    } else if (data == ArduinoConstants.SWITCH_3_ON) {
-                        switch3Time.setTextColor(Color.parseColor("#4caf50"));
-                        switch3Button.setChecked(true);
-                    } else if (data == ArduinoConstants.SWITCH_3_OFF) {
-                        switch3Time.setTextColor(Color.parseColor("#f44336"));
-                        switch3Button.setChecked(false);
-                    } else if (data == ArduinoConstants.SWITCH_4_ON) {
-                        switch4Time.setTextColor(Color.parseColor("#4caf50"));
-                        switch4Button.setChecked(true);
-                    } else if (data == ArduinoConstants.SWITCH_4_OFF) {
-                        switch4Time.setTextColor(Color.parseColor("#f44336"));
-                        switch4Button.setChecked(false);
-                    } else if (data == ArduinoConstants.SWITCH_5_ON) {
-                        switch5Time.setTextColor(Color.parseColor("#4caf50"));
-                        switch5Button.setChecked(true);
-                    } else if (data == ArduinoConstants.SWITCH_5_OFF) {
-                        switch5Time.setTextColor(Color.parseColor("#f44336"));
-                        switch5Button.setChecked(false);
-                    } else if (data == ArduinoConstants.SWITCH_6_ON) {
-                        switch6Time.setTextColor(Color.parseColor("#4caf50"));
-                        switch6Button.setChecked(true);
-                    } else if (data == ArduinoConstants.SWITCH_6_OFF) {
-                        switch6Time.setTextColor(Color.parseColor("#f44336"));
-                        switch6Button.setChecked(false);
-                    } else if (data == ArduinoConstants.SWITCH_7_ON) {
-                        switch7Time.setTextColor(Color.parseColor("#4caf50"));
-                        switch7Button.setChecked(true);
-                    } else if (data == ArduinoConstants.SWITCH_7_OFF) {
-                        switch7Time.setTextColor(Color.parseColor("#f44336"));
-                        switch7Button.setChecked(false);
-                    } else if (data == ArduinoConstants.SWITCH_8_ON) {
-                        switch8Time.setTextColor(Color.parseColor("#4caf50"));
-                        switch8Button.setChecked(true);
-                    } else if (data == ArduinoConstants.SWITCH_8_OFF) {
-                        switch8Time.setTextColor(Color.parseColor("#f44336"));
-                        switch8Button.setChecked(false);
+                    try {
+                        if (data == ArduinoConstants.SWITCH_1_ON) {
+                            TimeScheduler.livingRoomSwitch1StartTimer();
+                            switch1Time.setTextColor(Color.parseColor("#4caf50"));
+                            livingRoom_Load = 15;
+                            switch1Button.setChecked(true);
+                        } else if (data == ArduinoConstants.SWITCH_1_OFF) {
+                            TimeScheduler.livingRoomSwitch1StopTimer();
+                            switch1Time.setTextColor(Color.parseColor("#f44336"));
+                            livingRoom_Load = 0;
+                            switch1Button.setChecked(false);
+                        } else if (data == ArduinoConstants.SWITCH_2_ON) {
+                            switch2Time.setTextColor(Color.parseColor("#4caf50"));
+                            switch2Button.setChecked(true);
+                        } else if (data == ArduinoConstants.SWITCH_2_OFF) {
+                            switch2Time.setTextColor(Color.parseColor("#f44336"));
+                            switch2Button.setChecked(false);
+                        } else if (data == ArduinoConstants.SWITCH_3_ON) {
+                            switch3Time.setTextColor(Color.parseColor("#4caf50"));
+                            switch3Button.setChecked(true);
+                        } else if (data == ArduinoConstants.SWITCH_3_OFF) {
+                            switch3Time.setTextColor(Color.parseColor("#f44336"));
+                            switch3Button.setChecked(false);
+                        } else if (data == ArduinoConstants.SWITCH_4_ON) {
+                            switch4Time.setTextColor(Color.parseColor("#4caf50"));
+                            switch4Button.setChecked(true);
+                        } else if (data == ArduinoConstants.SWITCH_4_OFF) {
+                            switch4Time.setTextColor(Color.parseColor("#f44336"));
+                            switch4Button.setChecked(false);
+                        } else if (data == ArduinoConstants.SWITCH_5_ON) {
+                            switch5Time.setTextColor(Color.parseColor("#4caf50"));
+                            switch5Button.setChecked(true);
+                        } else if (data == ArduinoConstants.SWITCH_5_OFF) {
+                            switch5Time.setTextColor(Color.parseColor("#f44336"));
+                            switch5Button.setChecked(false);
+                        } else if (data == ArduinoConstants.SWITCH_6_ON) {
+                            switch6Time.setTextColor(Color.parseColor("#4caf50"));
+                            switch6Button.setChecked(true);
+                        } else if (data == ArduinoConstants.SWITCH_6_OFF) {
+                            switch6Time.setTextColor(Color.parseColor("#f44336"));
+                            switch6Button.setChecked(false);
+                        } else if (data == ArduinoConstants.SWITCH_7_ON) {
+                            switch7Time.setTextColor(Color.parseColor("#4caf50"));
+                            switch7Button.setChecked(true);
+                        } else if (data == ArduinoConstants.SWITCH_7_OFF) {
+                            switch7Time.setTextColor(Color.parseColor("#f44336"));
+                            switch7Button.setChecked(false);
+                        } else if (data == ArduinoConstants.SWITCH_8_ON) {
+                            switch8Time.setTextColor(Color.parseColor("#4caf50"));
+                            switch8Button.setChecked(true);
+                        } else if (data == ArduinoConstants.SWITCH_8_OFF) {
+                            switch8Time.setTextColor(Color.parseColor("#f44336"));
+                            switch8Button.setChecked(false);
+                        }
+                        break;
+                    } catch (Exception e) {
+                       e.printStackTrace();
                     }
-                    break;
             }
         }
     };

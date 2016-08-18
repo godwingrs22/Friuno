@@ -1,57 +1,44 @@
 package com.friuno.http;
 
-//import android.os.StrictMode;
-//
-//import com.friuno.credentials.DBCredentials;
-//
-//import org.apache.http.HttpResponse;
-//import org.apache.http.client.ClientProtocolException;
-//import org.apache.http.client.HttpClient;
-//import org.apache.http.client.methods.HttpPost;
-//import org.apache.http.entity.StringEntity;
-//import org.apache.http.impl.client.DefaultHttpClient;
-//
-//import java.io.BufferedReader;
-//import java.io.IOException;
-//import java.io.InputStreamReader;
+import android.util.Log;
+
+import com.friuno.AppController;
+
+import java.io.IOException;
+
+import okhttp3.HttpUrl;
+import okhttp3.MediaType;
+import okhttp3.Request;
+import okhttp3.RequestBody;
+import okhttp3.Response;
 
 /**
- * Created by GodwinRoseSamuel on 25-07-2016.
+ * Created by GodwinRoseSamuel on 15-01-2016.
  */
 public class HTTPClient {
-//
-//    public static HttpClient httpclient;
-//
-//    public static HttpClient getInstance() {
-//        if (httpclient == null) {
-//            httpclient = new DefaultHttpClient();
-//        }
-//        return httpclient;
-//    }
-//
-//    public String receiveDBPOSTResponse(final String url, final String data) {
-//        StringBuffer result = null;
-//        HttpClient httpclient = getInstance();
-//        HttpPost request = new HttpPost(url);
-//        try {
-//            StringEntity input = new StringEntity(data);
-//            request.setHeader("Authorization", "Basic " + DBCredentials.getEncodedAuthorization());
-//            request.setEntity(input);
-//            StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
-//            StrictMode.setThreadPolicy(policy);
-//            HttpResponse response = httpclient.execute(request);
-//            BufferedReader rd = new BufferedReader(new InputStreamReader(response.getEntity().getContent()));
-//
-//            result = new StringBuffer();
-//            String line = "";
-//            while ((line = rd.readLine()) != null) {
-//                result.append(line);
-//            }
-//        } catch (ClientProtocolException e) {
-//            e.printStackTrace();
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-//        return result.toString();
-//    }
+    private static final String TAG = HTTPClient.class.getSimpleName();
+    public static final MediaType APPLICATION_JSON = MediaType.parse("application/json; charset=utf-8");
+
+    public static String GET(HttpUrl url) throws IOException {
+        Log.v(TAG, "<------Request URL----> " + url.toString());
+        Request request = new Request.Builder()
+                .url(url)
+                .build();
+        Response response = AppController.getInstance().getOkHttpClient().newCall(request).execute();
+        Log.v(TAG, "<------Is Response Successful----> " + response.isSuccessful());
+        return response.body().string();
+    }
+
+    public static String POST(HttpUrl url, String body) throws IOException {
+        Log.v(TAG, "<------Request URL----> " + url.toString());
+        RequestBody requestBody = RequestBody.create(APPLICATION_JSON, body);
+        Log.v(TAG, "<------RequestBody----> " + body);
+        Request request = new Request.Builder()
+                .url(url)
+                .post(requestBody)
+                .build();
+        Response response = AppController.getInstance().getOkHttpClient().newCall(request).execute();
+        Log.v(TAG, "<------Is Response Successful----> " + response.isSuccessful());
+        return response.body().string();
+    }
 }

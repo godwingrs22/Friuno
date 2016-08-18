@@ -4,7 +4,7 @@
     tools:context=".StatisticsFragment">
     <item
         android:id="@+id/action_refresh"
-        android:icon="@mipmap/ic_refresh_white_48dp"
+        android:icon="@mipmap/refresh"
         app:showAsAction="ifRoom"
         android:title="@string/action_voiceControl" />
     <item

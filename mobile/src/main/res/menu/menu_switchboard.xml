@@ -4,7 +4,7 @@
     tools:context=".LivingRoomFragment">
     <item
         android:id="@+id/action_switchboard_voiceControl"
-        android:icon="@mipmap/ic_mic_white_48dp"
+        android:icon="@mipmap/mic"
         android:title="@string/action_voiceControl"
         app:showAsAction="ifRoom" />
     <item

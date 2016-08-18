@@ -1,7 +1,7 @@
 package com.friuno.util;
 
 /**
- * Created by GodwinRoseSamuel on 16-07-2016.
+ * Created by GodwinRoseSamuel on 18-07-2016.
  */
 public class Constants {
     public static final String ON = "ON";

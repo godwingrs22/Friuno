@@ -6,6 +6,9 @@ import com.friuno.util.Constants;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * Created by GodwinRoseSamuel on 21-07-2016.
+ */
 public class SpeechDictionary {
 
     private String[] livingRoomSwitch_1 = {"socket", "switch one", "switch 1", "which one", "which 1", "suck it", "circuit", "saket"};

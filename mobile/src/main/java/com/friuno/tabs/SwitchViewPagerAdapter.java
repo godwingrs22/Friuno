@@ -11,6 +11,9 @@ import com.friuno.fragment.switchboard.MainHallFragment;
 import com.friuno.fragment.switchboard.OthersFragment;
 import com.friuno.util.Constants;
 
+/**
+ * Created by GodwinRoseSamuel on 18-07-2016.
+ */
 public class SwitchViewPagerAdapter extends FragmentPagerAdapter {
 
     // Declare the number of ViewPager pages
