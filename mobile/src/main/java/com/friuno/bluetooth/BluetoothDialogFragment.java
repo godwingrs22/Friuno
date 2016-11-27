@@ -25,7 +25,7 @@ import java.lang.reflect.Method;
 import java.util.Map;
 
 /**
- * Created by GodwinRoseSamuel on 20-07-2016.
+ * Created by GodwinRoseSamuel on 20-10-2016.
  */
 public class BluetoothDialogFragment extends DialogFragment implements
         AdapterView.OnItemClickListener {

@@ -21,7 +21,7 @@ import com.friuno.fragment.SwitchBoardFragment;
 import com.friuno.timer.TimeScheduler;
 import com.friuno.util.Constants;
 /**
- * Created by GodwinRoseSamuel on 15-01-2016.
+ * Created by GodwinRoseSamuel on 15-11-2016.
  */
 public class OthersFragment extends Fragment {
 

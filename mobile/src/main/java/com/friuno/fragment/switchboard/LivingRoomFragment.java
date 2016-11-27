@@ -27,7 +27,7 @@ import com.friuno.util.Constants;
 import java.text.DecimalFormat;
 
 /**
- * Created by GodwinRoseSamuel on 15-01-2016.
+ * Created by GodwinRoseSamuel on 15-10-2016.
  */
 public class LivingRoomFragment extends Fragment {
 

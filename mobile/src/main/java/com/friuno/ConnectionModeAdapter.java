@@ -4,7 +4,7 @@ import android.content.Context;
 import android.widget.ArrayAdapter;
 
 /**
- * Created by GodwinRoseSamuel on 21-07-2016.
+ * Created by GodwinRoseSamuel on 21-10-2016.
  */
 public class ConnectionModeAdapter extends ArrayAdapter<String> {
 

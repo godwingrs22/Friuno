@@ -1,7 +1,7 @@
 package com.friuno.credentials;
 
 /**
- * Created by GodwinRoseSamuel on 15-01-2016.
+ * Created by GodwinRoseSamuel on 15-09-2016.
  */
 public class DBCredentials {
     private static final String HOSTNAME = "api-eu.clusterpoint.com";

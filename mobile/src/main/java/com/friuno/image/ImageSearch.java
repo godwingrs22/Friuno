@@ -20,7 +20,7 @@ import com.friuno.http.HTTPClient;
 //import java.io.InputStreamReader;
 
 /**
- * Created by GodwinRoseSamuel on 16-01-2016.
+ * Created by GodwinRoseSamuel on 16-09-2016.
  */
 public class ImageSearch {
 

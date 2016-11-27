@@ -12,7 +12,7 @@ import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.location.LocationServices;
 
 /**
- * Created by GodwinRoseSamuel on 17-Aug-16.
+ * Created by GodwinRoseSamuel on 17-10-16.
  */
 public class GoogleApiHelper implements GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener {
     private static final String TAG = GoogleApiHelper.class.getSimpleName();

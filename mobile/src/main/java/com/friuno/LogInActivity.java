@@ -46,6 +46,7 @@ public class LogInActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
+
         OptionalPendingResult<GoogleSignInResult> opr = Auth.GoogleSignInApi.silentSignIn(mGoogleApiClient);
         if (opr.isDone()) {
             Log.d(TAG, "Got cached sign-in");
@@ -83,9 +84,9 @@ public class LogInActivity extends AppCompatActivity {
             Log.d(TAG, "Name: " + googleSignInAccount.getDisplayName() + ", email: " + googleSignInAccount.getEmail() + ", Image: " + googleSignInAccount.getPhotoUrl());
 
             Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-            intent.putExtra("name",googleSignInAccount.getDisplayName());
-            intent.putExtra("email",googleSignInAccount.getEmail());
-            intent.putExtra("image",googleSignInAccount.getPhotoUrl().toString());
+            intent.putExtra("name", googleSignInAccount.getDisplayName());
+            intent.putExtra("email", googleSignInAccount.getEmail());
+            intent.putExtra("image", googleSignInAccount.getPhotoUrl() == null ? "" : googleSignInAccount.getPhotoUrl().toString());
             startActivity(intent);
             updateUI(true);
             finish();

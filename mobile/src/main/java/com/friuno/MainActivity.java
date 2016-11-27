@@ -53,7 +53,7 @@ import com.google.android.gms.common.api.Status;
 import com.squareup.picasso.Picasso;
 
 /**
- * Created by GodwinRoseSamuel on 23-07-2016.
+ * Created by GodwinRoseSamuel on 23-10-2016.
  */
 public class MainActivity extends AppCompatActivity {
 
@@ -612,6 +612,8 @@ public class MainActivity extends AppCompatActivity {
                             menuItem.setChecked(true);
                             break;
                         case R.id.item_navigation_drawer_device_settings:
+                            Intent deviceIntent = new Intent(MainActivity.this,DeviceActivity.class);
+                            startActivity(deviceIntent);
                             drawerLayout.closeDrawer(GravityCompat.START);
                             menuItem.setChecked(true);
                             break;

@@ -29,7 +29,7 @@ import java.io.IOException;
 import java.io.OutputStream;
 
 /**
- * Created by GodwinRoseSamuel on 16-01-2016.
+ * Created by GodwinRoseSamuel on 16-10-2016.
  */
 public class FaceDetectorActivity extends AppCompatActivity {
 
