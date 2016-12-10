@@ -26,7 +26,7 @@ import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
 /**
- * Created by GodwinRoseSamuel on 22-10-2016.
+ * Created by GodwinRoseSamuel on 07-12-2016.
  */
 public class LocationFragment extends Fragment implements
         GoogleMap.OnMyLocationButtonClickListener,

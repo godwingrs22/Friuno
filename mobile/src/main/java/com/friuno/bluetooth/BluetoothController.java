@@ -13,7 +13,7 @@ import java.util.Set;
 import java.util.UUID;
 
 /**
- * Created by GodwinRoseSamuel on 18-10-2016.
+ * Created by GodwinRoseSamuel on 02-12-2016.
  */
 public class BluetoothController {
 

@@ -10,7 +10,7 @@ import com.google.android.gms.common.api.GoogleApiClient;
 import okhttp3.OkHttpClient;
 
 /**
- * Created by GodwinRoseSamuel on 20-10-2016.
+ * Created by GodwinRoseSamuel on 20-11-2016.
  */
 
 public class AppController extends Application implements GoogleApiClient.OnConnectionFailedListener {

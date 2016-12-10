@@ -20,7 +20,7 @@ import com.friuno.timer.TimeScheduler;
 import com.friuno.util.Constants;
 
 /**
- * Created by GodwinRoseSamuel on 15-10-2016.
+ * Created by GodwinRoseSamuel on 09-12-2016.
  */
 public class MainHallFragment extends Fragment {
 

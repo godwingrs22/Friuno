@@ -9,7 +9,7 @@ import android.view.View;
 import android.widget.ProgressBar;
 
 /**
- * Created by GodwinRoseSamuel on 18-10-2016.
+ * Created by GodwinRoseSamuel on 18-11-2016.
  */
 public class SplashScreen extends Activity {
 

@@ -17,7 +17,7 @@ import com.google.android.gms.common.api.ResultCallback;
 import com.google.android.gms.common.api.Status;
 
 /**
- * Created by GodwinRoseSamuel on 28-07-2016.
+ * Created by GodwinRoseSamuel on 28-11-2016.
  */
 public class LogInActivity extends AppCompatActivity {
     private static final String TAG = "LogInActivity";

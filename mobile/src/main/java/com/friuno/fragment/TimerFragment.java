@@ -10,7 +10,7 @@ import android.view.ViewGroup;
 import com.friuno.R;
 
 /**
- * Created by GodwinRoseSamuel on 01-10-2016.
+ * Created by GodwinRoseSamuel on 07-12-2016.
  */
 public class TimerFragment extends Fragment {
 
