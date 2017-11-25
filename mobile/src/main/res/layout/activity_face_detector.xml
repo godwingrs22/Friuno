@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/padding_verylarge_72dp"
+        android:fontFamily="sans-serif-medium"
+        android:text="Face Detector"
+        android:textColor="?colorAccent"
+        android:textSize="@dimen/text_size" />
+
+    <ImageView
+        android:id="@+id/userImage"
+        android:layout_width="250dp"
+        android:layout_height="250dp"
+        android:layout_alignLeft="@+id/captureimageView"
+        android:layout_alignParentBottom="true"
+        android:src="@mipmap/no_image" />
+
+    <Button
+        android:id="@+id/browseImage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Browse" />
+
+    <Button
+        android:id="@+id/submit_image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Submit" />
+</LinearLayout>

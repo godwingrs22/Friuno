@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "614900445770",
+    "project_id": "friuno-22"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:614900445770:android:2a2e7071211147a2",
+        "android_client_info": {
+          "package_name": "com.friuno"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "614900445770-7ufuionmcln5riudjnems5bjnlokitfb.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.friuno",
+            "certificate_hash": "F22EC40D1341DD155A58574C92CE4AD9D80E5F3D"
+          }
+        },
+        {
+          "client_id": "614900445770-t55i9ie9vn7mvp6pk88d49qnu0831anu.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBPGzx7QmJIMs49TFQfx1hbOvRNXf-UVtg"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 1
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
